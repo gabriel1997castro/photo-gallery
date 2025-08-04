@@ -1,4 +1,6 @@
 # CLEVER CHALLENGE
+## Video showing the photos app locally
+https://www.loom.com/share/eb206ff9eb97467bb2a70926305b07eb
 
 ## Why this repository is public
 
