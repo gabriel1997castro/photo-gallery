@@ -3,35 +3,11 @@
 import ErrorCard from "@/components/error-card";
 import Input from "@/components/input";
 import { Logo } from "@/components/logo";
+import { getSession } from "@/utils/auth/getSession";
+import signIn from "@/utils/auth/signin";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
-interface SignInCredentials {
-  email: string;
-  password: string;
-  redirect: boolean;
-}
-
-interface SignInResponse {
-  user?: {
-    id: number;
-    email: string;
-  };
-  error?: string | null;
-}
-
-const signIn = async (
-  provider: string,
-  credentials: SignInCredentials
-): Promise<SignInResponse> => {
-  return { user: { id: 1, email: "test@example.com" }, error: null };
-}; // Mocked login function
-
-const getSession = async () => {
-  // Mocked session retrieval
-  return null;
-};
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
@@ -128,6 +104,7 @@ export default function SignInPage() {
               <Link
                 href="/forgot-password"
                 className="text-sm text-secondary hover:underline"
+                tabIndex={4}
               >
                 Forgot Password?
               </Link>
