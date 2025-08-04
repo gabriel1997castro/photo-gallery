@@ -13,7 +13,6 @@ interface SignInResponse {
 }
 
 const signIn = async (
-  provider: string,
   credentials: SignInCredentials
 ): Promise<SignInResponse> => {
   // Get saved credentials from localStorage

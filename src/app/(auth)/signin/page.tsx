@@ -3,6 +3,7 @@
 import ErrorCard from "@/components/error-card";
 import Input from "@/components/input";
 import { Logo } from "@/components/logo";
+import { useAuth } from "@/context/AuthContext";
 import { getSession } from "@/utils/auth/getSession";
 import signIn from "@/utils/auth/signin";
 import Link from "next/link";
@@ -15,12 +16,15 @@ export default function SignInPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { login, logout } = useAuth();
 
   useEffect(() => {
     // Check if user is already signed in
     getSession().then((session) => {
       if (session) {
         router.push("/photos");
+      } else {
+        logout();
       }
     });
   }, [router]);
@@ -49,7 +53,7 @@ export default function SignInPage() {
     }
 
     try {
-      const result = await signIn("credentials", {
+      const result = await signIn({
         email,
         password,
         redirect: false,
@@ -58,6 +62,7 @@ export default function SignInPage() {
       if (result?.error) {
         setError("Invalid credentials");
       } else {
+        login();
         router.push("/photos");
       }
     } catch (error) {
@@ -74,7 +79,7 @@ export default function SignInPage() {
           {/* Logo and Header */}
           <div className="flex flex-col items-center text-center mb-8 gap-8">
             <Logo />
-            <h1 className="text-xl font-semibold text-primary">
+            <h1 className="text-xl font-bold text-primary">
               Sign in to your account
             </h1>
           </div>

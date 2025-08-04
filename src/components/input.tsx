@@ -28,7 +28,7 @@ const Input: React.FC<InputProps> = ({
         id={id}
         value={value}
         onChange={onChange}
-        className={`w-full px-4 py-3 border border-neutral rounded-lg  focus:border-transparent transition-colors ${className}`}
+        className={`w-full px-2 py-3 border border-neutral rounded-lg  focus:border-transparent transition-colors ${className}`}
         {...props}
       />
     </div>
