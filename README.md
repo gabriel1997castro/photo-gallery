@@ -12,31 +12,6 @@ If this were a real-world project, I would take the following precautions:
 
 Since the original setup is already public, this repo remains public as well — but in a production environment, this would be handled securely.
 
-## Tasks
-
-- [x] Create a NextJs web app using Typescript
-  - [x] Add favicon
-- [x] Use npm or yarn
-- [x] Create Sign in page
-  - [x] Create input component
-  - [x] Add forgot password
-  - [x] Add sign in button
-  - [x] Create logo component
-  - [x] Double check styling
-- [x] Create All photos page
-  - [x] Add logo and all photos
-  - [x] Create photo card
-    - [x] add image
-    - [x] make image background color to be the avg color
-    - [x] Add photographer
-    - [x] Add photographer url
-    - [x] Add alt text
-    - [x] add color text
-  - [x] Double check styling
-- [ ] Add users to review
-- [x] Responsiveness
-- [x] Font sizes and details
-
 ## Decisions
 
 - Used NextJS because is an opportunity to learn

@@ -1,0 +1,24 @@
+## Tasks
+
+- [x] Create a NextJs web app using Typescript
+  - [x] Add favicon
+- [x] Use npm or yarn
+- [x] Create Sign in page
+  - [x] Create input component
+  - [x] Add forgot password
+  - [x] Add sign in button
+  - [x] Create logo component
+  - [x] Double check styling
+- [x] Create All photos page
+  - [x] Add logo and all photos
+  - [x] Create photo card
+    - [x] add image
+    - [x] make image background color to be the avg color
+    - [x] Add photographer
+    - [x] Add photographer url
+    - [x] Add alt text
+    - [x] add color text
+  - [x] Double check styling
+- [x] Add users to review
+- [x] Responsiveness
+- [x] Font sizes and details
