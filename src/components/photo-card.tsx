@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import LikeButton from "./like-button";
+import Tooltip from "./Tooltip";
 
 export default function PhotoCard({
   photo,
@@ -27,17 +28,16 @@ export default function PhotoCard({
       <div className="px-4 text-sm max-w-1/2 sm:max-w-2/3 md:max-w-full">
         <p className="font-bold text-primary">{photo.photographer}</p>
 
-        <div className="relative group w-full">
+        <Tooltip text={photo.alt}>
           <span
             className="inline-block truncate align-middle max-w-full text-primary"
             title={photo.alt}
+            tabIndex={0} // for keyboard accessibility
           >
             {photo.alt}
           </span>
-          <span className="absolute left-0 z-10 hidden group-hover:block bg-white border border-gray-300 rounded p-2 text-xs shadow-lg w-max max-w-xs">
-            {photo.alt}
-          </span>
-        </div>
+        </Tooltip>
+
         <span className="flex items-center gap-2">
           <span style={{ color: photo.avg_color }}>{photo.avg_color}</span>
           <span
