@@ -1,4 +1,3 @@
-"use client";
 interface TooltipProps {
   text: string;
   children: React.ReactNode;
