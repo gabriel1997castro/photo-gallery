@@ -150,7 +150,7 @@ To make this application production-ready and secure, the following improvements
 
    - Implement monitoring, logging, and CI/CD workflows.
    - Review and optimize performance (lazy loading, caching, etc.).
-   - Ensure accessibility (a11y) compliance and optimize for SEO where applicable.
+   - Ensure accessibility compliance and optimize for SEO where applicable.
 
 ---
 
