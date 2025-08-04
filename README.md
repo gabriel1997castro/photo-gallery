@@ -84,7 +84,7 @@ yarn dev
 
 4. Visit http://localhost:3000 in your browser.
 
-## Test Sign In
+## Using Sign In
 
 This project uses a **mock sign-in** system with predefined users for demonstration purposes.
 Authentication is handled on the frontend using a static list of users.
@@ -107,6 +107,39 @@ You can sign in using one of the following user accounts:
 > **Note:** No real user data is stored or transmitted. This is for challenge/demo purposes only.
 
 ---
+
+## Testing
+
+This project includes both unit tests (Jest + React Testing Library) and end-to-end tests (Cypress).
+
+### Unit Tests
+
+Unit tests are located in `src/components/*.test.tsx`.
+
+To run unit tests:
+
+```bash
+npm test
+# or
+yarn test
+```
+
+Example unit tests:
+
+- LikeButton renders correctly for liked/unliked state
+- LikeButton toggles state on click
+
+### End-to-End (E2E) Tests
+
+E2E tests are located in cypress/e2e/happy-path.cy.ts.
+
+To run Cypress tests:
+
+```bash
+npx cypress open
+```
+
+> **Note:** In a real-world project, I would never commit test user credentials or authentication flows directly in Cypress tests. This is included here only for the coding challenge and demonstration purposes. In production, authentication would be handled securely and sensitive data would be kept out of version control.
 
 ## What would be needed for production readiness and deployment
 
