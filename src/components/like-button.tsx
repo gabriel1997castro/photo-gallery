@@ -1,33 +1,43 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 interface LikeButtonProps {
   id: number;
 }
+
 export default function LikeButton({ id }: LikeButtonProps) {
-  const [liked, setLiked] = useState(false);
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
-  const userKey = user?.email
-    ? `likedPhotos_${user.email}`
-    : "likedPhotos_guest";
+  const [liked, setLiked] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const likedPhotos = JSON.parse(localStorage.getItem(userKey) || "[]");
-    setLiked(likedPhotos.includes(id));
-  }, [id, userKey]);
+    // Only run on client
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const key = user?.email ? `likedPhotos_${user.email}` : null;
+    if (key) {
+      const likedPhotos = JSON.parse(localStorage.getItem(key) || "[]");
+      setLiked(likedPhotos.includes(id));
+    } else {
+      setLiked(false);
+    }
+  }, [id]);
 
-  const handleLike = () => {
-    const likedPhotos = JSON.parse(localStorage.getItem(userKey) || "[]");
+  const handleLike = useCallback(() => {
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const key = user?.email ? `likedPhotos_${user.email}` : null;
+    if (!key) return;
+    const likedPhotos = JSON.parse(localStorage.getItem(key) || "[]");
     let updated;
     if (liked) {
       updated = likedPhotos.filter((photoId: number) => photoId !== id);
     } else {
       updated = [...likedPhotos, id];
     }
-    localStorage.setItem(userKey, JSON.stringify(updated));
+    localStorage.setItem(key, JSON.stringify(updated));
     setLiked(!liked);
-  };
+  }, [liked, id]);
+
+  // Don't render anything until client knows liked state
+  if (liked === null) return null;
 
   return (
     <button

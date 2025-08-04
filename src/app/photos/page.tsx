@@ -4,10 +4,10 @@ import { Photo } from "@/types/photo";
 
 export default async function Photos() {
   const data = await fetch(
-    `${process.env.PEXELS_ENDPOINT}/search?query=nature&per_page=10`,
+    `${process.env.NEXT_PUBLIC_PEXELS_ENDPOINT}/search?query=nature&per_page=10`,
     {
       headers: {
-        Authorization: process.env.PEXELS_API_KEY || "",
+        Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY || "",
         cache: "no-store",
       },
     }
