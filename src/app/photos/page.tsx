@@ -5,9 +5,17 @@ import { Photo } from "@/types/photo";
 export default async function Photos() {
   const data = await fetch(
     `${process.env.PEXELS_ENDPOINT}/search?query=nature&per_page=10`,
-    { headers: { Authorization: process.env.PEXELS_API_KEY || "" } }
+    {
+      headers: {
+        Authorization: process.env.PEXELS_API_KEY || "",
+        cache: "no-store",
+      },
+    }
   );
 
+  if (!data.ok) {
+    throw new Error("Failed to fetch photos");
+  }
   const responseJson = await data.json();
 
   const photos: Photo[] = responseJson.photos;

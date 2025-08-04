@@ -27,6 +27,7 @@ Since the original setup is already public, this repo remains public as well —
   - [x] Add logo and all photos
   - [x] Create photo card
     - [x] add image
+    - [x] make image background color to be the avg color
     - [x] Add photographer
     - [x] Add photographer url
     - [x] Add alt text

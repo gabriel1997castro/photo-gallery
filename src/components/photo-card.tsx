@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import LikeButton from "./like-button";
-import Tooltip from "./Tooltip";
+import Tooltip from "./tooltip";
 
 export default function PhotoCard({
   photo,
@@ -18,6 +18,7 @@ export default function PhotoCard({
       </div>
       <div className="min-w-[4.688rem] min-h-[4.688rem] relative">
         <Image
+          style={{ backgroundColor: photo.avg_color }}
           className="w-[4.688rem] h-[4.688rem] rounded-lg object-cover"
           src={photo.src.medium}
           alt={photo.alt}
